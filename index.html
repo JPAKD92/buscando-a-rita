@@ -66,6 +66,7 @@
         <button class="btn btn-play" onclick="goToCharacterSelect()">
           <span class="btn-icon">🎮</span> ¡Jugar!
         </button>
+        <button class="btn btn-back" onclick="showRankingFromStart()" style="margin-top:16px">🏆 Ver ranking</button>
         <div class="high-score-display" id="high-score-start"></div>
       </div>
     </div>
@@ -366,7 +367,7 @@
         <div class="ranking-table-container" id="ranking-table-container">
           <p class="ranking-loading">Cargando ranking...</p>
         </div>
-        <button class="btn btn-back" onclick="showScreen('screen-final')">← Volver</button>
+        <button class="btn btn-back" onclick="showScreen(rankingReturnScreen)">← Volver</button>
       </div>
     </div>
   </div>

@@ -816,7 +816,15 @@ async function submitRanking() {
   }
 }
 
+let rankingReturnScreen = 'screen-final';
+
+function showRankingFromStart() {
+  rankingReturnScreen = 'screen-start';
+  showRanking();
+}
+
 async function showRanking() {
+  if (rankingReturnScreen !== 'screen-start') rankingReturnScreen = 'screen-final';
   showScreen('screen-ranking');
   const currentDiff = state.difficulty || 'medio';
   document.querySelectorAll('.rank-tab').forEach(t => t.classList.toggle('active', t.dataset.diff === currentDiff));
