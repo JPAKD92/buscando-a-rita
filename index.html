@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscando a Rita 🐱</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+</head>
+<body>
+  <button class="music-toggle" id="music-toggle" onclick="toggleMusic()" title="Música on/off">🎵</button>
+  <div id="app">
+
+    <!-- ====== PANTALLA INICIO ====== -->
+    <div id="screen-start" class="screen active">
+      <div class="start-content">
+        <div class="start-deco">🌟 🐾 🌟</div>
+        <div class="title-cat-container">
+          <svg class="rita-title-svg" viewBox="0 0 200 200" width="160" height="160">
+            <!-- Cuerpo -->
+            <ellipse cx="100" cy="135" rx="55" ry="45" fill="#FAFAFA" stroke="#E0D5C8" stroke-width="2"/>
+            <!-- Manchas cuerpo -->
+            <ellipse cx="75" cy="125" rx="18" ry="14" fill="#8B6914" opacity="0.6" transform="rotate(-15 75 125)"/>
+            <ellipse cx="120" cy="140" rx="15" ry="10" fill="#3D3D3D" opacity="0.5" transform="rotate(10 120 140)"/>
+            <!-- Cabeza -->
+            <circle cx="100" cy="80" r="38" fill="#FAFAFA" stroke="#E0D5C8" stroke-width="2"/>
+            <!-- Orejas -->
+            <polygon points="70,55 60,20 85,48" fill="#FAFAFA" stroke="#E0D5C8" stroke-width="2"/>
+            <polygon points="130,55 140,20 115,48" fill="#FAFAFA" stroke="#E0D5C8" stroke-width="2"/>
+            <polygon points="72,52 65,28 83,48" fill="#FFB5B5" opacity="0.5"/>
+            <polygon points="128,52 135,28 117,48" fill="#FFB5B5" opacity="0.5"/>
+            <!-- Manchas cabeza -->
+            <ellipse cx="82" cy="68" rx="14" ry="10" fill="#8B6914" opacity="0.5" transform="rotate(-10 82 68)"/>
+            <ellipse cx="122" cy="72" rx="10" ry="8" fill="#3D3D3D" opacity="0.4" transform="rotate(15 122 72)"/>
+            <!-- Ojos -->
+            <ellipse cx="86" cy="78" rx="8" ry="9" fill="white" stroke="#555" stroke-width="1.5"/>
+            <ellipse cx="114" cy="78" rx="8" ry="9" fill="white" stroke="#555" stroke-width="1.5"/>
+            <ellipse cx="88" cy="79" rx="5" ry="6" fill="#2E8B57"/>
+            <ellipse cx="116" cy="79" rx="5" ry="6" fill="#2E8B57"/>
+            <circle cx="89" cy="77" r="2.5" fill="#1A5C38"/>
+            <circle cx="117" cy="77" r="2.5" fill="#1A5C38"/>
+            <circle cx="90" cy="76" r="1.2" fill="white"/>
+            <circle cx="118" cy="76" r="1.2" fill="white"/>
+            <!-- Nariz -->
+            <ellipse cx="100" cy="88" rx="4" ry="3" fill="#FFB5B5"/>
+            <!-- Boca -->
+            <path d="M96,91 Q100,96 104,91" fill="none" stroke="#C4888A" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Bigotes -->
+            <line x1="60" y1="82" x2="82" y2="86" stroke="#CCC" stroke-width="1.2"/>
+            <line x1="58" y1="90" x2="80" y2="89" stroke="#CCC" stroke-width="1.2"/>
+            <line x1="118" y1="86" x2="140" y2="82" stroke="#CCC" stroke-width="1.2"/>
+            <line x1="120" y1="89" x2="142" y2="90" stroke="#CCC" stroke-width="1.2"/>
+            <!-- Cola -->
+            <path d="M150,140 Q170,120 165,95 Q162,85 155,90" fill="none" stroke="#E0D5C8" stroke-width="6" stroke-linecap="round"/>
+            <path d="M160,98 Q158,90 155,92" fill="none" stroke="#8B6914" stroke-width="5" opacity="0.4" stroke-linecap="round"/>
+            <!-- Patitas -->
+            <ellipse cx="75" cy="172" rx="12" ry="8" fill="#FAFAFA" stroke="#E0D5C8" stroke-width="1.5"/>
+            <ellipse cx="125" cy="172" rx="12" ry="8" fill="#FAFAFA" stroke="#E0D5C8" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h1 class="game-title">Buscando a Rita</h1>
+        <p class="subtitle">Una aventura educativa 🐾</p>
+        <div class="story-box">
+          <p>Rita es una gatita blanca con manchas marrones y negras, y unos hermosos ojos verdes. ¡Se escondió en algún lugar de la casa y necesita que la encuentres!</p>
+        </div>
+        <button class="btn btn-play" onclick="goToCharacterSelect()">
+          <span class="btn-icon">🎮</span> ¡Jugar!
+        </button>
+        <div class="high-score-display" id="high-score-start"></div>
+      </div>
+    </div>
+
+    <!-- ====== SELECCIÓN DE PERSONAJE ====== -->
+    <div id="screen-select" class="screen">
+      <div class="select-content">
+        <h2 class="select-title">¿Quién va a buscar a Rita?</h2>
+        <div class="character-select">
+          <!-- Justina -->
+          <button class="character-card card-justina" onclick="selectCharacter('justina')">
+            <svg class="char-svg" viewBox="0 0 160 200" width="130" height="165">
+              <!-- Pelo -->
+              <ellipse cx="80" cy="65" rx="45" ry="48" fill="#C8A25C"/>
+              <ellipse cx="80" cy="50" rx="42" ry="35" fill="#D4B06A"/>
+              <path d="M38,65 Q35,110 50,130" fill="#C8A25C" stroke="none"/>
+              <path d="M122,65 Q125,110 110,130" fill="#C8A25C" stroke="none"/>
+              <!-- Cara -->
+              <ellipse cx="80" cy="78" rx="32" ry="34" fill="#FDDCB5"/>
+              <!-- Ojos -->
+              <ellipse cx="68" cy="78" rx="5" ry="6" fill="white"/>
+              <ellipse cx="92" cy="78" rx="5" ry="6" fill="white"/>
+              <circle cx="69" cy="79" r="3.5" fill="#5B3A1A"/>
+              <circle cx="93" cy="79" r="3.5" fill="#5B3A1A"/>
+              <circle cx="70" cy="77.5" r="1.3" fill="white"/>
+              <circle cx="94" cy="77.5" r="1.3" fill="white"/>
+              <!-- Pestañas -->
+              <path d="M63,73 Q65,70 68,72" stroke="#5B3A1A" fill="none" stroke-width="1.2"/>
+              <path d="M87,73 Q89,70 92,72" stroke="#5B3A1A" fill="none" stroke-width="1.2"/>
+              <!-- Mejillas -->
+              <circle cx="60" cy="88" r="6" fill="#FFB5A0" opacity="0.4"/>
+              <circle cx="100" cy="88" r="6" fill="#FFB5A0" opacity="0.4"/>
+              <!-- Boca sonrisa -->
+              <path d="M72,92 Q80,100 88,92" fill="none" stroke="#D4777A" stroke-width="2" stroke-linecap="round"/>
+              <!-- Cuerpo/remera -->
+              <path d="M50,115 Q48,140 45,170 L115,170 Q112,140 110,115 Q95,108 80,108 Q65,108 50,115Z" fill="#FF7EB3"/>
+              <path d="M50,115 Q48,140 45,170 L115,170 Q112,140 110,115 Q95,108 80,108 Q65,108 50,115Z" fill="url(#shirtGradJ)" opacity="0.3"/>
+              <!-- Cuello -->
+              <rect x="72" y="107" width="16" height="10" rx="3" fill="#FDDCB5"/>
+              <!-- Detalle remera: estrella -->
+              <text x="80" y="150" text-anchor="middle" font-size="22">⭐</text>
+              <defs>
+                <linearGradient id="shirtGradJ" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="white" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="transparent"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="char-name">Justina</span>
+            <span class="char-desc">Niña de pelo rubio castaño</span>
+            <span class="card-badge">👧</span>
+          </button>
+
+          <!-- León -->
+          <button class="character-card card-leon" onclick="selectCharacter('leon')">
+            <svg class="char-svg" viewBox="0 0 160 200" width="130" height="165">
+              <!-- Pelo -->
+              <ellipse cx="80" cy="60" rx="40" ry="38" fill="#A0784C"/>
+              <ellipse cx="80" cy="50" rx="37" ry="28" fill="#B8905E"/>
+              <!-- Cara -->
+              <ellipse cx="80" cy="78" rx="32" ry="34" fill="#F5D0A9"/>
+              <!-- Ojos -->
+              <ellipse cx="68" cy="78" rx="5" ry="6" fill="white"/>
+              <ellipse cx="92" cy="78" rx="5" ry="6" fill="white"/>
+              <circle cx="69" cy="79" r="3.5" fill="#3D2B1A"/>
+              <circle cx="93" cy="79" r="3.5" fill="#3D2B1A"/>
+              <circle cx="70" cy="77.5" r="1.3" fill="white"/>
+              <circle cx="94" cy="77.5" r="1.3" fill="white"/>
+              <!-- Cejas -->
+              <line x1="63" y1="71" x2="73" y2="70" stroke="#8B6D4A" stroke-width="2" stroke-linecap="round"/>
+              <line x1="87" y1="70" x2="97" y2="71" stroke="#8B6D4A" stroke-width="2" stroke-linecap="round"/>
+              <!-- Mejillas -->
+              <circle cx="60" cy="88" r="6" fill="#FFB5A0" opacity="0.35"/>
+              <circle cx="100" cy="88" r="6" fill="#FFB5A0" opacity="0.35"/>
+              <!-- Boca sonrisa -->
+              <path d="M72,92 Q80,99 88,92" fill="none" stroke="#C4777A" stroke-width="2" stroke-linecap="round"/>
+              <!-- Cuerpo/remera -->
+              <path d="M50,115 Q48,140 45,170 L115,170 Q112,140 110,115 Q95,108 80,108 Q65,108 50,115Z" fill="#5B9FE8"/>
+              <path d="M50,115 Q48,140 45,170 L115,170 Q112,140 110,115 Q95,108 80,108 Q65,108 50,115Z" fill="url(#shirtGradL)" opacity="0.3"/>
+              <!-- Cuello -->
+              <rect x="72" y="107" width="16" height="10" rx="3" fill="#F5D0A9"/>
+              <!-- Detalle remera: rayo -->
+              <text x="80" y="150" text-anchor="middle" font-size="22">⚡</text>
+              <defs>
+                <linearGradient id="shirtGradL" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="white" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="transparent"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="char-name">León</span>
+            <span class="char-desc">Niño de pelo marrón claro</span>
+            <span class="card-badge">👦</span>
+          </button>
+          <!-- Emilia -->
+          <button class="character-card card-emilia" onclick="selectCharacter('emilia')">
+            <svg class="char-svg" viewBox="0 0 160 200" width="130" height="165">
+              <!-- Pelo negro largo -->
+              <ellipse cx="80" cy="65" rx="46" ry="50" fill="#1A1A1A"/>
+              <ellipse cx="80" cy="50" rx="43" ry="36" fill="#2D2D2D"/>
+              <path d="M36,65 Q33,115 48,135" fill="#1A1A1A" stroke="none"/>
+              <path d="M124,65 Q127,115 112,135" fill="#1A1A1A" stroke="none"/>
+              <!-- Cara blanca -->
+              <ellipse cx="80" cy="78" rx="32" ry="34" fill="#FDE8D8"/>
+              <!-- Ojos -->
+              <ellipse cx="68" cy="78" rx="5" ry="6" fill="white"/>
+              <ellipse cx="92" cy="78" rx="5" ry="6" fill="white"/>
+              <circle cx="69" cy="79" r="3.5" fill="#3D2010"/>
+              <circle cx="93" cy="79" r="3.5" fill="#3D2010"/>
+              <circle cx="70" cy="77.5" r="1.3" fill="white"/>
+              <circle cx="94" cy="77.5" r="1.3" fill="white"/>
+              <!-- Pestañas -->
+              <path d="M63,73 Q65,70 68,72" stroke="#1A1A1A" fill="none" stroke-width="1.2"/>
+              <path d="M87,73 Q89,70 92,72" stroke="#1A1A1A" fill="none" stroke-width="1.2"/>
+              <!-- Mejillas -->
+              <circle cx="60" cy="88" r="6" fill="#FFB5A0" opacity="0.35"/>
+              <circle cx="100" cy="88" r="6" fill="#FFB5A0" opacity="0.35"/>
+              <!-- Boca sonrisa -->
+              <path d="M72,92 Q80,100 88,92" fill="none" stroke="#D4777A" stroke-width="2" stroke-linecap="round"/>
+              <!-- Cuerpo/remera violeta -->
+              <path d="M50,115 Q48,140 45,170 L115,170 Q112,140 110,115 Q95,108 80,108 Q65,108 50,115Z" fill="#AB47BC"/>
+              <path d="M50,115 Q48,140 45,170 L115,170 Q112,140 110,115 Q95,108 80,108 Q65,108 50,115Z" fill="url(#shirtGradE)" opacity="0.3"/>
+              <!-- Cuello -->
+              <rect x="72" y="107" width="16" height="10" rx="3" fill="#FDE8D8"/>
+              <!-- Detalle remera: corazón -->
+              <text x="80" y="150" text-anchor="middle" font-size="22">💜</text>
+              <defs>
+                <linearGradient id="shirtGradE" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="white" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="transparent"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="char-name">Emilia</span>
+            <span class="char-desc">Niña de tez blanca y pelo negro</span>
+            <span class="card-badge">👧🏻</span>
+          </button>
+        </div>
+        <button class="btn btn-back" onclick="goToStart()">← Volver</button>
+      </div>
+    </div>
+
+    <!-- ====== SELECCIÓN DE DIFICULTAD ====== -->
+    <div id="screen-difficulty" class="screen">
+      <div class="select-content">
+        <h2 class="select-title">¿Qué tan difícil querés que sea?</h2>
+        <div class="difficulty-select">
+          <button class="diff-card diff-easy" onclick="selectDifficulty('facil')">
+            <span class="diff-icon">🌱</span>
+            <span class="diff-name">Fácil</span>
+            <span class="diff-age">5-6 años</span>
+            <span class="diff-desc">Sumas simples, colores, animales</span>
+          </button>
+          <button class="diff-card diff-medium" onclick="selectDifficulty('medio')">
+            <span class="diff-icon">🌟</span>
+            <span class="diff-name">Medio</span>
+            <span class="diff-age">7-8 años</span>
+            <span class="diff-desc">Ciencias, geografía, cálculos</span>
+          </button>
+          <button class="diff-card diff-hard" onclick="selectDifficulty('dificil')">
+            <span class="diff-icon">🔥</span>
+            <span class="diff-name">Difícil</span>
+            <span class="diff-age">9-10 años</span>
+            <span class="diff-desc">Multiplicaciones, historia, inglés</span>
+          </button>
+        </div>
+        <button class="btn btn-back" onclick="goToCharacterSelect()">← Volver</button>
+      </div>
+    </div>
+
+    <!-- ====== INTRO DE NIVEL ====== -->
+    <div id="screen-level-intro" class="screen">
+      <div class="level-intro-content">
+        <div class="level-number-badge" id="level-number-badge">NIVEL 1</div>
+        <div class="level-scene-container">
+          <div class="level-scene" id="level-scene"></div>
+        </div>
+        <h2 id="level-title" class="level-title-text"></h2>
+        <p id="level-description" class="level-desc-text"></p>
+        <div class="player-info-intro">
+          <div id="player-avatar-intro-container"></div>
+          <span id="player-name-intro" class="player-name-label"></span>
+        </div>
+        <button class="btn btn-explore" onclick="startLevel()">
+          <span class="btn-icon">🔍</span> Explorar
+        </button>
+      </div>
+    </div>
+
+    <!-- ====== PANTALLA DE PREGUNTAS ====== -->
+    <div id="screen-question" class="screen">
+      <div class="game-hud">
+        <div class="hud-left">
+          <div id="player-avatar-game-container" class="hud-avatar"></div>
+          <span id="player-name-game" class="hud-name"></span>
+        </div>
+        <div class="hud-center">
+          <div class="score-gem">
+            <span class="gem-icon">💎</span>
+            <span id="score-display" class="score-number">0</span>
+          </div>
+        </div>
+        <div class="hud-right">
+          <span id="level-badge" class="hud-level">1/5</span>
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-bar-bg">
+          <div class="progress-fill" id="progress-bar"></div>
+        </div>
+        <div class="progress-pawprints">
+          <span class="paw" id="paw-0">🐾</span>
+          <span class="paw" id="paw-1">🐾</span>
+          <span class="paw" id="paw-2">🐾</span>
+          <span class="paw" id="paw-3">🐾</span>
+          <span class="paw" id="paw-4">🐾</span>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-card-header">
+          <span class="q-badge" id="question-counter">Pregunta 1 de 3</span>
+          <div class="timer-container">
+            <div class="timer-ring">
+              <svg viewBox="0 0 40 40" width="40" height="40">
+                <circle class="timer-ring-bg" cx="20" cy="20" r="17"/>
+                <circle class="timer-ring-fill" id="timer-ring-fill" cx="20" cy="20" r="17" stroke-dasharray="106.8" stroke-dashoffset="0"/>
+              </svg>
+              <span class="timer-number" id="timer-number">10</span>
+            </div>
+          </div>
+        </div>
+        <p class="question-text" id="question-text"></p>
+        <div class="options-grid" id="options-grid"></div>
+      </div>
+
+      <div class="feedback-overlay hidden" id="feedback-overlay"></div>
+      <div class="feedback-panel hidden" id="feedback-panel">
+        <div class="feedback-icon" id="feedback-icon"></div>
+        <p class="feedback-text" id="feedback-text"></p>
+        <button class="btn btn-next" id="feedback-btn" onclick="nextQuestion()">Siguiente →</button>
+      </div>
+    </div>
+
+    <!-- ====== PISTA ENCONTRADA ====== -->
+    <div id="screen-clue" class="screen">
+      <div class="clue-content">
+        <div class="clue-magnifier">🔎</div>
+        <h2 class="clue-title">¡Pista encontrada!</h2>
+        <div class="clue-card">
+          <div class="clue-card-icon">🐾</div>
+          <p class="clue-text" id="clue-text"></p>
+        </div>
+        <div class="clues-map" id="clues-collected"></div>
+        <button class="btn btn-explore" onclick="goToNextLevel()">
+          <span class="btn-icon">➡️</span> Continuar
+        </button>
+      </div>
+    </div>
+
+    <!-- ====== PANTALLA FINAL ====== -->
+    <div id="screen-final" class="screen">
+      <div class="final-content">
+        <div id="final-scene" class="final-scene-art"></div>
+        <h2 id="final-title" class="final-title"></h2>
+        <p id="final-message" class="final-message"></p>
+        <div class="final-score-card">
+          <div class="final-score-label">Puntaje final</div>
+          <div class="final-score-value" id="final-score-value"></div>
+          <div class="final-score-stars" id="final-stars"></div>
+        </div>
+        <div id="achievements-panel" class="achievements-grid"></div>
+        <div class="ranking-form" id="ranking-form">
+          <input type="text" id="player-real-name" class="name-input" placeholder="Tu nombre para el ranking..." maxlength="20">
+          <button class="btn btn-next" onclick="submitRanking()">📤 Guardar puntaje</button>
+        </div>
+        <div id="ranking-status" class="ranking-status"></div>
+        <div class="final-buttons">
+          <button class="btn btn-explore" onclick="showRanking()">🏆 Ver ranking</button>
+          <button class="btn btn-play" onclick="restartGame()">
+            <span class="btn-icon">🔄</span> Jugar de nuevo
+          </button>
+          <button class="btn btn-back" onclick="goToStart()">← Inicio</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== RANKING ====== -->
+    <div id="screen-ranking" class="screen">
+      <div class="ranking-content">
+        <h2 class="ranking-title">🏆 Ranking Global</h2>
+        <div class="ranking-tabs">
+          <button class="rank-tab active" data-diff="facil" onclick="switchRankingTab('facil')">🌱 Fácil</button>
+          <button class="rank-tab" data-diff="medio" onclick="switchRankingTab('medio')">🌟 Medio</button>
+          <button class="rank-tab" data-diff="dificil" onclick="switchRankingTab('dificil')">🔥 Difícil</button>
+        </div>
+        <div class="ranking-table-container" id="ranking-table-container">
+          <p class="ranking-loading">Cargando ranking...</p>
+        </div>
+        <button class="btn btn-back" onclick="showScreen('screen-final')">← Volver</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
